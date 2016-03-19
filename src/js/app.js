@@ -1,6 +1,6 @@
 var Hello = React.createClass({
     render: function() {
-        return <h3>Hi yeahs</h3>
+        return <h3>Hello, lady</h3>
     }
 });
 

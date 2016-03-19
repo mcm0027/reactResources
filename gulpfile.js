@@ -4,14 +4,23 @@
 
 var gulp = require('gulp');
 var react = require('gulp-react');
+const babel = require('gulp-babel');
 
-gulp.task('default', function () {
+gulp.task('babel', () => {
     return gulp.src(['./src/js/*.js', './src/js/**/*.js'])
-        .pipe(react())
+        .pipe(babel({
+            presets: ['es2015', 'react']
+        }))
         .pipe(gulp.dest('./dist'));
 });
 
+//gulp.task('default', function () {
+//    return gulp.src(['./src/js/*.js', './src/js/**/*.js'])
+//        .pipe(react())
+//        .pipe(gulp.dest('./dist'));
+//});
+
 gulp.task('watch', function() {
-    gulp.watch(['./src/js/*.js', './src/js/**/*.js'], ['default'])
+    gulp.watch(['./src/js/*.js', './src/js/**/*.js'], ['babel'])
 
 });
